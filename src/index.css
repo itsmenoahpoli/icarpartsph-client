@@ -1,13 +1,163 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  font-family: Poppins !important;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow: hidden;
+}
+
+.font-weight-bold {
+  font-weight: 700 !important;
+}
+
+.font-weight-bolder {
+  font-weight: 800 !important;
+}
+
+.font-weight-boldest {
+  font-weight: 900 !important;
+}
+
+/* Sweetalert */
+.swal2-container * {
+  overflow: hidden;
+}
+
+/* Navbar */
+.mainNav {
+  background: #000000 !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.mainNav .navbar-brand,
+.mainNav a,
+.mainNav button {
+  color: #fff !important;
+  padding-left: 1rem !important;
+}
+
+.mainNav a {
+  font-size: 0.9rem !important;
+}
+
+/* Footer */
+.mainFooter {
+  color: #fff;
+  background: #222 !important;
+  padding: 4rem 3rem;
+  margin: 0 !important;
+}
+
+.bottomFooter {
+  color: #fff;
+  background: #111 !important;
+  padding: 1rem;
+  text-align: right;
+}
+
+/** Auth Container **/
+.authContainer {
+  height: 100vh;
+  width: 100%;
+  background: #222 !important;
+}
+
+.authContainer * {
+  overflow: hidden;
+}
+
+.authContainer img.authContainer-brandLogo {
+  height: 100px;
+  width: 100px;
+}
+
+.authContainer-card {
+  color: #fff !important;
+  background: #111 !important;
+  border: 0 !important;
+  border-radius: 0.3rem !important;
+  text-align: left !important;
+}
+
+.authContainer-form input {
+  color: #eee !important;
+  background: #333 !important;
+  padding: 1.25rem 1rem !important;
+  border: solid 1px #444 !important;
+}
+
+.authContainer-form input:focus {
+  box-shadow: none !important;
+}
+
+.authContainer-form .form-control {
+  margin-bottom: 1rem !important;
+}
+
+/* Carousel */
+.carousel .carousel-item {
+  height: 70vh !important;
+}
+
+/* Product card */
+.productCard {
+  border: 0 !important;
+  border-radius: 2rem !important;
+  padding: 2rem !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  transition: 0.3s ease !important;
+}
+
+.productCard:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 20px -6px rgba(209, 207, 209, 1);
+  -moz-box-shadow: 0px 0px 20px -6px rgba(209, 207, 209, 1);
+  box-shadow: 0px 0px 20px -6px rgba(209, 207, 209, 1);
+}
+
+.productCard img {
+  height: 200px;
+  margin-bottom: 1rem;
+}
+
+.productCard .nameLabel {
+  color: #777;
+  margin-bottom: 0;
+}
+
+.productCard .priceLabel {
+  color: #888;
+}
+
+.productCard .card-footer {
+  background: none !important;
+  border: 0 !important;
+}
+
+.productCard .card-footer button.btnDetails {
+  color: #fff !important;
+  background: #333 !important;
+  border-radius: 20px !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.9rem !important;
+}
+
+/* Product details */
+.productDetailsContainer {
+  position: relative;
+  height: 100%;
+}
+
+.productDetailsButtons {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
