@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Navbar, Nav, Modal } from "react-bootstrap";
 import { FiShoppingCart } from "react-icons/fi";
 import NumberFormat from "react-number-format";
@@ -23,12 +24,19 @@ const MainNav = ({ cart }) => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/shop">Shop</Nav.Link>
-            <Nav.Link href="/contect">Contact</Nav.Link>
-            <Nav.Link href="/customer/dashboard">My Account</Nav.Link>
-            <Nav.Link onClick={() => setShowModal(true)}>
-              <FiShoppingCart style={{ fontSize: "24px" }} />
+            {/* <Nav.Link>
+              <Link to="/">Home</Link>
+            </Nav.Link> */}
+            <Nav.Link>
+              <Link to="/shop">Shop</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/dashboard">My Account</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/my-cart">
+                <FiShoppingCart style={{ fontSize: "24px" }} />
+              </Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

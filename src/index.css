@@ -86,19 +86,30 @@ h6 {
   text-align: left !important;
 }
 
-.authContainer-form input {
+.authContainer-form .form-control {
   color: #eee !important;
   background: #333 !important;
   padding: 1.25rem 1rem !important;
   border: solid 1px #444 !important;
 }
 
-.authContainer-form input:focus {
+.authContainer-form .form-control:focus {
   box-shadow: none !important;
 }
 
 .authContainer-form .form-control {
   margin-bottom: 1rem !important;
+}
+
+/** Dashboard Container **/
+.dashboardContainer {
+  padding-top: 8% !important;
+}
+
+@media (max-width: 768px) {
+  .dashboardContainer {
+    padding-top: 8rem !important;
+  }
 }
 
 /* Carousel */

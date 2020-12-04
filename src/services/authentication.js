@@ -18,9 +18,21 @@ export default {
   async request_account_verification(email) {
     let repsonse = await axios.post(
       `${apiUrl}/mails/send/verifications/account`,
-      email
+      { email: email }
     );
     return repsonse.data;
+  },
+
+  async account_verify_verifiation_code(verification_code) {
+    let repsonse = await axios.post(`${apiUrl}/verifications/verify`, {
+      verification_code: verification_code,
+    });
+    return repsonse.data;
+  },
+
+  getUserData() {
+    let data = Cookie.get("user");
+    return JSON.parse(data);
   },
 
   logout() {

@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, REMOVE_PRODUCT } from "./types";
+import { ADD_PRODUCT, REMOVE_PRODUCT, RESET_CART } from "./types";
 
 let initialState = {
   cart: [],
@@ -14,8 +14,6 @@ export default function (state = initialState, action) {
       );
 
       if (checkIfExistingIndex != -1) {
-        console.log(action.payload.price);
-        console.log(action.payload.qty);
         currentCart[checkIfExistingIndex].price =
           currentCart[checkIfExistingIndex].price * action.payload.qty;
 
@@ -40,6 +38,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         cart: oldCart,
+      };
+
+    case RESET_CART:
+      return {
+        ...state,
+        cart: action.payload,
       };
 
     default:

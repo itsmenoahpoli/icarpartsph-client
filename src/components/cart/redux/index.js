@@ -1,4 +1,8 @@
-import { addProductToCart, removeProductToCart } from "./actions";
+import {
+  addProductToCart,
+  removeProductToCart,
+  resetProductCart,
+} from "./actions";
 import cartReducer from "./reducers";
 
-export { addProductToCart, removeProductToCart, cartReducer };
+export { addProductToCart, removeProductToCart, resetProductCart, cartReducer };

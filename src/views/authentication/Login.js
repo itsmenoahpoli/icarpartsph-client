@@ -4,9 +4,9 @@ import { Container, Card, Form, Button, Alert } from "react-bootstrap";
 import { FiAlertTriangle } from "react-icons/fi";
 import Loader from "react-loader-spinner";
 import Cookie from "js-cookie";
+import Swal from "sweetalert2";
 
 import Authentication from "./../../services/authentication";
-import Config from "./../../middlewares/config";
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -21,12 +21,20 @@ const Login = () => {
       setAuthLoading(true);
       Authentication.login({ ...credentials, login_type: "customer" })
         .then((response) => {
-          let { user, accessToken } = response.data;
+          if (response.data.is_verified) {
+            let { user, accessToken } = response.data;
 
-          Cookie.set("user", user);
-          Cookie.set("accessToken", accessToken);
+            Cookie.set("user", user);
+            Cookie.set("accessToken", accessToken);
 
-          window.location = "/dashboard";
+            window.location = "/dashboard";
+          } else {
+            Swal.fire({
+              icon: "error",
+              text:
+                "Unable to login, your account isn't verified yet. Please check you mail inbox.",
+            });
+          }
         })
         .catch((err) => setAuthError(true))
         .finally(() => setAuthLoading(false));

@@ -9,45 +9,56 @@ import { Error404 } from "./views/errors";
 import { Welcome } from "./views/home";
 import { List, Show } from "./views/shop";
 import { Login, Register, AccountVerify } from "./views/authentication";
+import { Dashboard, MyCart, MyOrders } from "./views/dashboard";
 
 const App = () => {
   let location = window.location;
   return (
     <>
-      {location.pathname !== "/login" &&
-      location.pathname !== "/register" &&
-      location.pathname !== "/account/verify" ? (
-        <Navbar />
-      ) : (
-        ""
-      )}
+      <Router>
+        {location.pathname !== "/login" &&
+        location.pathname !== "/register" &&
+        location.pathname !== "/account/verify" ? (
+          <Navbar />
+        ) : (
+          ""
+        )}
 
-      <div className="min-vh-100">
-        <Router>
+        <div className="min-vh-100">
           <Switch>
-            <Route exact={true} path="/" component={Welcome} />
+            <Route exact={true} path="/" component={List} />
 
             {/* Account */}
             <Route exact={true} path="/login" component={Login} />
             <Route exact={true} path="/register" component={Register} />
+            <Route
+              exact={true}
+              path="/account/verify"
+              component={AccountVerify}
+            />
 
-            {/* Show */}
-            <Route exact={true} path="/shop/" component={List} />
+            {/* Dashboard */}
+            <Route exact={true} path="/dashboard" component={Dashboard} />
+            <Route exact={true} path="/my-cart" component={MyCart} />
+            <Route exact={true} path="/my-orders" component={MyOrders} />
+
+            {/* Shop */}
+            <Route exact={true} path="/shop" component={List} />
             <Route exact={true} path="/shop/:slug" component={Show} />
 
             {/* Error pages */}
-            <Route default component={Error404} />
+            <Route route="*" component={Error404} />
           </Switch>
-        </Router>
-      </div>
+        </div>
 
-      {location.pathname !== "/login" &&
-      location.pathname !== "/register" &&
-      location.pathname !== "/account/verify" ? (
-        <Footer />
-      ) : (
-        ""
-      )}
+        {/* {location.pathname !== "/login" &&
+        location.pathname !== "/register" &&
+        location.pathname !== "/account/verify" ? (
+          <Footer />
+        ) : (
+          ""
+        )} */}
+      </Router>
     </>
   );
 };
