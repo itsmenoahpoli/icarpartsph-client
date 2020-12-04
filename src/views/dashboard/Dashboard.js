@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import AuthMiddleware from "./../../middlewares/authentication";
 import Authentication from "./../../services/authentication";
@@ -6,11 +7,13 @@ import Authentication from "./../../services/authentication";
 import ProfileContainer from "./../../components/dashboard/ProfileContainer";
 
 const Dashboard = () => {
+  const history = useHistory();
+
   useEffect(() => {
     document.title = "Bimmer Monkeys::Customer Dashboard";
 
     if (!AuthMiddleware.isAuthenticated()) {
-      window.location = "/";
+      history.push("/shop");
     }
   }, []);
 
@@ -20,7 +23,9 @@ const Dashboard = () => {
 
       <hr />
 
-      <ProfileContainer user={Authentication.getUserData()} />
+      {AuthMiddleware.isAuthenticated() ? (
+        <ProfileContainer user={Authentication.getUserData()} />
+      ) : null}
 
       <hr />
     </Container>
