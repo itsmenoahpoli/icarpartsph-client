@@ -82,6 +82,12 @@ const CartContainer = ({ cart }) => {
           >
             Reset Cart
           </button>
+
+          <Link to="/my-orders">
+            <button type="button" className="btn btn-light border btn-sm ml-3">
+              My Orders
+            </button>
+          </Link>
         </div>
       </div>
 

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Modal } from "react-bootstrap";
 import { FiShoppingCart } from "react-icons/fi";
 import NumberFormat from "react-number-format";
+import Cookie from "js-cookie";
+import AuthMiddleware from "./../middlewares/authentication";
 
 /** Redux */
 import { connect, useDispatch } from "react-redux";
@@ -13,6 +15,13 @@ let APP_URL = "http://localhost:8000";
 const MainNav = ({ cart }) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+
+  const logout = () => {
+    Cookie.remove("accessToken");
+    Cookie.remove("user");
+
+    window.location = "/";
+  };
 
   return (
     <>
@@ -33,6 +42,13 @@ const MainNav = ({ cart }) => {
             <Nav.Link>
               <Link to="/dashboard">My Account</Link>
             </Nav.Link>
+            {AuthMiddleware.isAuthenticated() ? (
+              <>
+                <Nav.Link onClick={() => logout()}>Logout</Nav.Link>
+              </>
+            ) : (
+              ""
+            )}
             <Nav.Link>
               <Link to="/my-cart">
                 <FiShoppingCart style={{ fontSize: "24px" }} />
